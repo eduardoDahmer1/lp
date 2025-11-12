@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Produto Exclusivo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 30px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+      max-width: 500px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-content h2 {
+      margin-bottom: 15px;
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .card-content button {
+      background: #ff5252;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card-content button:hover {
+      background: #ff7979;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Passo a passo popup */
+    #passos {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 15px 20px;
+      color: #fff;
+      max-width: 260px;
+      font-size: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      animation: fadeInUp 1s ease forwards;
+      display: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🔥 Oferta Imperdível</h1>
+    <p>Produto exclusivo com desconto por tempo limitado!</p>
+  </header>
+
+  <div class="card" id="produtoCard">
+    <img src="./imagem/iphone.jpg" alt="Produto Premium">
+    <div class="card-content">
+      <h2>Produto Premium</h2>
+      <p>Conheça o produto que está revolucionando o mercado! Aproveite o preço promocional e garanta o seu agora mesmo.</p>
+      <button id="comprarBtn">Comprar Agora</button>
+    </div>
+  </div>
+
+  <div id="passos">
+    <strong>🛒 Passo a passo:</strong><br><br>
+    1️⃣ Clique em <b>“Comprar Agora”</b>.<br>
+    2️⃣ Você será redirecionado para o site oficial.<br>
+    3️⃣ Escolha sua forma de pagamento.<br>
+    4️⃣ Finalize e receba o produto com segurança.
+  </div>
+
+  <footer>
+    <p>© 2025 - Página de Afiliado criada por Eduardo</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('comprarBtn');
+    const card = document.getElementById('produtoCard');
+    const passos = document.getElementById('passos');
+
+    // Mostrar passo a passo após alguns segundos
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        passos.style.display = 'block';
+      }, 1500);
+    });
+
+    // Redirecionar para link de afiliado ao clicar
+    const linkAfiliado = "https://www.seulinkdeafiliado.com";
+
+    btn.addEventListener('click', () => {
+      btn.innerText = "Redirecionando...";
+      btn.disabled = true;
+      btn.style.background = "#666";
+      setTimeout(() => {
+        window.location.href = linkAfiliado;
+      }, 1000);
+    });
+
+    // Efeito no clique do card
+    card.addEventListener('click', () => {
+      card.style.transform = "scale(1.05)";
+      setTimeout(() => {
+        card.style.transform = "scale(1)";
+      }, 300);
+    });
+  </script>
+
+</body>
+</html>
